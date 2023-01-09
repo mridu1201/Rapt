@@ -1,8 +1,10 @@
 import Home from './pages/home/Home';
-import Event from './pages/events/Event';
 import { Route,Routes } from 'react-router-dom';
 import AboutUs from './pages/aboutUs/about';
 import HomeGallery from './pages/Gallery/homegallery';
+import Events from './pages/events/events';
+import Homeupload from './pages/Gallery/homeupload';
+import Up from './pages/events/Up/UpEvents';
 
 
 function App() {
@@ -10,9 +12,11 @@ function App() {
   <div>
     <Routes>
       <Route path='/' element={<Home/>}></Route>
-      <Route path='/Events' element={<Event/>}></Route>
+      <Route path='/Events' element={<Events/>}></Route>
       <Route path='/Gallery' element={<HomeGallery/>}></Route>
       <Route path='/AboutUs' element={<AboutUs/>}></Route>
+      <Route path='/UpEvents' element={<Up/>}></Route>
+      <Route path='/Upload' element={<Homeupload/>}></Route>
     </Routes>
   </div>
   );

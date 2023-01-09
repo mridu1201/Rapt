@@ -33,6 +33,7 @@ export default function HoverRating() {
         alignItems: 'center',
       }}
     >
+      
       <Rating
         name="hover-feedback"
         value={value}
