@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './gallery.css';
 import CloseIcon from '@mui/icons-material/Close';
-
+import { Link } from 'react-router-dom';
 import { getImageListItemBarUtilityClass } from '@mui/material';
 
 
@@ -60,9 +60,7 @@ const Gallery =() =>
     }
     return(
         <>
-        <div className='button'> 
-        <p><button type="button">Addpost</button></p>
-        </div>
+        
         <div className={model? "model open":"model"}>
              <img src={tempimgSrc}/>
              <CloseIcon onClick={()=>setModel(false)}></CloseIcon>
