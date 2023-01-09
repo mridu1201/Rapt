@@ -3,11 +3,21 @@ import {Animator, batch, Fade, FadeIn, FadeOut, Move, MoveIn, MoveOut, ScrollCon
 import './scroll.css';
 import HoverRating from './btn';
 import CustomizedRating from './overall-btn';
+import Contact from './contact';
+import { Link } from 'react-router-dom';
+import Events from '../events/events';
 
 
 const ZoomInScrollOut=batch(StickyIn(15,50),FadeIn(),ZoomIn());
 
 
+const handleClickScroll = () => {
+    const element = document.getElementById('section-1');
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 function Scroll(){
     return(
         <ScrollContainer>
@@ -29,27 +39,30 @@ function Scroll(){
                 </div>
                 <div className='sec-2'>
                 <Animator animation={batch(MoveIn(-1000,0),)}> 
-                <button>Upcoming Events</button>
+                <Link to='/UpEvents'><button className='btn'>Upcoming Events</button></Link>
                 <br/>
-                <button>Ongoing Events</button>
+                <Link to='/Events'><button className='btn'>Ongoing Events</button></Link>
                 </Animator>
                 </div>
-                    <Animator animation={batch(MoveIn(1000,0),Sticky(),Fade(),MoveOut(0,-10))}>
-                    <div className='container'>
-        <div className='card'>
+                    <Animator animation={batch(MoveIn(500,0),Sticky(),Fade(),MoveOut(0,-10))}>
+                    <div className='containerr'>
+        <Link to='/Events'><div className='carddd'>
           <img src='https://www.eventbrite.com/blog/wp-content/uploads/2022/04/GP-socialdistancing-04_Blog-Header-2.png' />
           <div className='intro'>
-            <h2>Upcoming Events</h2>
-            <p>A state level calssical dancing competition was held on November 2nd.Top 3 members are selected for the National level competition </p>
+            <h2>Ongoing Events</h2>
+            <p>These are the current events...⭐✌️</p>
           </div>
         </div>
-        <div className='card'>
+        </Link>
+        <Link to='/UpEvents'>
+        <div className='carddd'>
           <img src='https://thumbs.dreamstime.com/b/word-writing-text-upcoming-events-business-concept-approaching-planned-public-social-occasions-young-woman-speaking-163969171.jpg' />
           <div className='intro'>
-            <h2>Ongoing Events</h2>
-            <p>A state level calssical dancing competition was held on November 2nd.Top 3 members are selected for the National level competition </p>
+            <h2>Upcoming Events</h2>
+            <p>Know the future events and participate in those 🤩💪🏽</p>
           </div>
         </div>
+        </Link>
         </div>
         </Animator>
         </ScrollPage>
@@ -61,12 +74,12 @@ function Scroll(){
         <Animator animation={batch(Sticky(),Fade(),Move())}> 
             <div className='body'>
             <div className='card1'>
-                <img src='https://www.bricartsmedia.org/sites/default/files/190425EFrossard_BRIC_PortraitPolitical_3700Md.jpg' className='card-img' />
+                <img src='https://images.pexels.com/photos/2372978/pexels-photo-2372978.jpeg' className='card-img' />
                 <div className='card-body'>
                     <h2 className='card-title'>Gallery</h2>
                     <p className='card-subtitle'>all your posts</p>
                     <p className='card-info'>The place where you can view what's going on around you, get to know the acheivements and stories</p>
-                    <button className='card-btn'>view posts</button>
+                    <button className='card-btn'><Link to='/Gallery'>view posts</Link></button>
                 </div>
             </div>
             </div>
@@ -79,7 +92,7 @@ function Scroll(){
                     <h2 className='card-title'>Create Posts</h2>
                     <p className='card-subtitle'>create your post</p>
                     <p className='card-info'>Share your stories,acheivements and talents here and inspire others.</p>
-                    <button className='card-btn'>create a post</button>
+                    <button className='card-btn'><Link to='/Upload'>create a post</Link></button>
                 </div>
             </div>
             </div>
@@ -93,15 +106,15 @@ function Scroll(){
                     <h1>About Us</h1>
                     <br/>
                     <br/>
-                    <p>Your curious?</p>
+                    <p>You are curious?</p>
                     <br/>
                     <p> Learn more about us and how the Student Community functions!</p>
                 </div>
             </Animator>
             <Animator animation={batch(FadeIn(),Sticky(70,50),ZoomOut(1))}>
                 <div className='sec-3-2'>
-                    <button>About Us</button>
-                    <button>Contact Us</button>
+                    <button><Link to='/AboutUs'>About Us</Link></button>
+                    <button>>Contact Us</button>
                 </div>
             </Animator>
             </div>
@@ -120,7 +133,12 @@ function Scroll(){
                     <HoverRating/>
                     <h4>Overall Rating</h4>
                     <CustomizedRating/>
-
+                </Animator>
+                <Animator animation={MoveIn(1000,0), Sticky(70,20)}>
+                    <h1>Contact Us</h1>
+                </Animator>
+                <Animator animation={MoveIn(1000,0), Sticky(70,55)}>
+                    <Contact/>
                 </Animator>
             </ScrollPage>
 
@@ -129,117 +147,3 @@ function Scroll(){
 
 
 export default Scroll;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import {Animator, batch, Fade, FadeIn, Move, MoveIn, MoveOut, ScrollContainer, ScrollPage, Sticky, StickyIn, Zoom, ZoomIn} from 'react-scroll-motion';
-import './scroll.css';
-
-
-const ZoomInScrollOut=batch(StickyIn(),FadeIn(),ZoomIn());
-
-const FadeUp=batch(Sticky(),Fade(),Move());
-
-function Scroll(){
-    return(
-        <ScrollContainer>
-            <ScrollPage page={0}>
-                <Animator animation={batch(Sticky(),Fade(),MoveOut(0, -200))}> 
-                    <h2>It's me!!!</h2>
-                </Animator>
-            </ScrollPage>
-
-            <ScrollPage page={1}>
-                <Animator animation={ZoomInScrollOut}> 
-                    <h2>Hi!!!</h2>
-                </Animator>
-            </ScrollPage>
-
-            <ScrollPage page={2}>
-                <Animator animation={FadeUp}> 
-                    <h2>I'm the problem it's me...</h2>
-                </Animator>
-            </ScrollPage>
-
-            <ScrollPage page={3}>
-                <div className='sec-3'>
-                <Animator animation={MoveIn(-1000,0)}>I'll</Animator>
-                <Animator animation={MoveIn(1000,0)}>stare</Animator>
-                <Animator animation={MoveOut(1000,0)}>directly at the</Animator>
-                <Animator animation={MoveOut(-1000,0)}>sun but never in the mirror</Animator>
-                </div>
-            </ScrollPage>
-
-            <ScrollPage page={3}>
-                <Animator animation={batch(FadeIn(),Sticky())}>
-                    <h2>Done</h2>
-                </Animator>
-            </ScrollPage>
-        </ScrollContainer>
-    )
-}
-
-export default Scroll;*/
