@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./upload.css";
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import { Link } from "react-router-dom";
 
 function Vee() {
   const [file, setFile] = useState(null);
@@ -34,7 +35,7 @@ function Vee() {
      <div>
     <div className="bg"><form onSubmit={handleSubmit}>
       <div className="bkg">
-      <h1>React File Upload</h1>
+      <Link to='/Gallery'><h1>Add Post</h1></Link>
       <input type="file" onChange={handleOnChange} />
       <button type="submit">Upload File</button>
       </div>

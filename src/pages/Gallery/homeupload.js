@@ -3,7 +3,8 @@ import './homeupload.css'
 //import BackgroundImagePage from './bg';
 import Apple from './upload';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { Link } from 'react-router-dom';
 
 function Homeupload() {
   return (
@@ -11,11 +12,11 @@ function Homeupload() {
     
     <div className="upload-header">
       <div className="Arrow-div">
-        <KeyboardDoubleArrowLeftIcon className="DoubleArrowLeftIcon"/>
+        <Link to='/Gallery'><ArrowBackIosIcon className="DoubleArrowLeftIcon" >Back to Gallery</ArrowBackIosIcon></Link>
       </div>
         <Apple/>
     </div>
   );
 }
 
-export default Homeupload;
+export default Homeupload; 

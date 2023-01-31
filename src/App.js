@@ -5,9 +5,15 @@ import HomeGallery from './pages/Gallery/homegallery';
 import Events from './pages/events/events';
 import Homeupload from './pages/Gallery/homeupload';
 import Up from './pages/events/Up/UpEvents';
+import React from 'react';
+import LoginButton from './pages/LoginButton';
+import Profile from './pages/profile';
+import FaceIcon from '@mui/icons-material/Face';
+
 
 
 function App() {
+
   return (
   <div>
     <Routes>
@@ -17,6 +23,8 @@ function App() {
       <Route path='/AboutUs' element={<AboutUs/>}></Route>
       <Route path='/UpEvents' element={<Up/>}></Route>
       <Route path='/Upload' element={<Homeupload/>}></Route>
+      <Route path='/profile' element={<Profile/>}></Route>
+      <Route path='/Login' element={<LoginButton/>}></Route>
     </Routes>
   </div>
   );

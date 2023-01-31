@@ -6,6 +6,11 @@
 	box-sizing: border-box;
 }
 
+.icon{
+  margin-top: 10px;
+  font-size: 100px;
+}
+
 h3{
 	font-family: 'Rochester', cursive;
 	font-size: 60px;
@@ -38,7 +43,7 @@ header{
 .align-items-right{
   display: flex;
   flex-direction: row;
-  margin-left: 550px;
+  text-align: right;
 }
 
 .align-items-right button{

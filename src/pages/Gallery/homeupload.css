@@ -9,11 +9,15 @@
     color: white;
 }
 
+.DoubleArrowLeftIcon{
+    font-size:xx-large;
+}
+
 .Arrow-div{
     display:flex;
     top:100%;
 }
 
 .DoubleArrowLeftIcon{
-    size: 20px;
+    size: 500px;
 }

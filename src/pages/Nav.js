@@ -3,9 +3,19 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import "./Nav.css";
 import {Link} from "react-router-dom";
 import PositionedMenu from "./dropdown";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import { useAuth0 } from "@auth0/auth0-react";
+import Profile from "./profile";
+import FaceIcon from '@mui/icons-material/Face';
 
-function Nav() {
+
+
+
+function MainNav() {
 	const navRef = useRef();
+
+	const {isLoading,error} = useAuth0();
 
 	const showNavbar = () => {
 		navRef.current.classList.toggle("responsive_nav");
@@ -30,48 +40,21 @@ function Nav() {
 				<FaBars />
 			</button>
       <nav  className="align-items-right">
-        <button><Link to='/'>Sign Up</Link></button>
-        <button><Link to='/'>Sign In</Link></button>
+		{error && <p>Authentication Error</p>}
+		{!error && isLoading && <p>Loading...</p>}
+		{!error && !isLoading && (
+		
+			<button><Link to='/Login'><LoginButton/><LogoutButton/></Link></button>
+			
+			)}
+			<Link to='/profile'><FaceIcon fontSize="large" className="icon"/></Link>
+		
       </nav>
 		</header>
 	);
+  }
 
-  {/*return (
-    <div>
-      
-      <div className="wrapper1">
-        <nav>
-          <input type="checkbox" id="show-search" />
-          <input type="checkbox" id="show-menu" />
-          <label htmlFor="show-menu" className="menu-icon"><i className="fas fa-bars" /></label>
-          <div className="content">
-            <h3>Rapt!</h3>
-            <ul className="links">
-              <li><a href="#">Home</a></li>
-              <li>
-                <a href="#" className="desktop-link">Speciality</a>
-                <input type="checkbox" id="show-features" />
-                <label htmlFor="show-features">Speciality</label>
-                <ul>
-                  <li><a href="#">General Medicine</a></li>
-                  <li><a href="#">Pediatric Care</a></li>
-                  <li><a href="#">Gynaecology</a></li>
-                  <li><a href="#">Dental</a></li>
-                </ul>
-              </li>
-              
-              <li>
-                <a href="#" className="desktop-link">Contact Us</a>
-              </li>
-              <li><a href="#">Feedback</a></li>
-              
-            </ul>
-          </div>
-        </nav>
-      </div>
-  </div>
-  );*/}
 
-}
 
-export default Nav;
+
+  export default MainNav;
